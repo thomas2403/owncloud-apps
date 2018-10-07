@@ -12,8 +12,8 @@
 
 namespace OCA\Files_Opds;
 
-\OCP\JSON::callCheck();
-\OCP\JSON::checkLoggedIn();
+\OC_JSON::callCheck();
+\OC_JSON::checkLoggedIn();
 
 $l = \OC::$server->getL10N('files_opds');
 
@@ -26,7 +26,7 @@ $feedTitle = isset($_POST['feedTitle']) ? $_POST['feedTitle'] : $l->t("%s's Libr
 if (!strlen($rootPath) ||
     \OC\Files\Filesystem::isValidPath($rootPath) === false || 
     \OC\Files\Filesystem::file_exists($rootPath) === false ) {
-	\OCP\JSON::error(
+	\OC_JSON::error(
 		array(
 			'data' => array('message'=> $l->t('Directory does not exist!'))
 		)
@@ -39,7 +39,7 @@ if (!strlen($rootPath) ||
         Config::set('feed_title', $feedTitle);
 	Config::set('id', Util::genUuid());
 
-       	\OCP\JSON::success(
+       	\OC_JSON::success(
 	array(
 		'data' => array('message'=> $l->t('Settings updated successfully.'))
 		)
