@@ -21,7 +21,7 @@ $opdsEnable = isset($_POST['opdsEnable']) ? $_POST['opdsEnable'] : 'false';
 $rootPath = isset($_POST['rootPath']) ? $_POST['rootPath'] : '/Library';
 $fileTypes = isset($_POST['fileTypes']) ? $_POST['fileTypes'] : '';
 $skipList = isset($_POST['skipList']) ? $_POST['skipList'] : 'metadata.opf,cover.jpg';
-$feedTitle = isset($_POST['feedTitle']) ? $_POST['feedTitle'] : $l->t("%s's Library", \OCP\User::getDisplayName());
+$feedTitle = isset($_POST['feedTitle']) ? $_POST['feedTitle'] : $l->t("%s's Library", \OC_User::getDisplayName());
 
 if (!strlen($rootPath) ||
     \OC\Files\Filesystem::isValidPath($rootPath) === false || 
