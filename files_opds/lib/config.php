@@ -25,7 +25,7 @@ class Config
 	 * @return string retrieved value or default
 	 */
 	public static function get($key, $default) {
-		return \OC::$server->getConfig()->getUserValue(\OCP\User::getUser(), 'files_opds', $key, $default);
+		return \OC::$server->getConfig()->getUserValue(\OC::$server->getUserSession()->getUser()->getUID(), 'files_opds', $key, $default);
 	}
 
 	/**
@@ -36,7 +36,7 @@ class Config
 	 * @return bool success
 	 */
 	public static function set($key, $value) {
-		return \OC::$server->getConfig()->setUserValue(\OCP\User::getUser(), 'files_opds', $key, $value);
+		return \OC::$server->getConfig()->setUserValue(\OC::$server->getUserSession()->getUser()->getUID(), 'files_opds', $key, $value);
 	}
 
 	/**
@@ -60,10 +60,10 @@ class Config
 	public static function setApp($key, $value) {
 		return \OC::$server->getConfig()->setAppValue('files_opds', $key, $value);
 	}
-	
+
 	/**
 	 * @brief get preview status
-	 * 
+	 *
 	 * @param string format
 	 * @return bool (true = enabled, false = disabled)
 	 */
