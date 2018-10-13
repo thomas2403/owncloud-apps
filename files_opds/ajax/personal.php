@@ -22,9 +22,10 @@ $rootPath = isset($_POST['rootPath']) ? $_POST['rootPath'] : '/Library';
 $fileTypes = isset($_POST['fileTypes']) ? $_POST['fileTypes'] : '';
 $skipList = isset($_POST['skipList']) ? $_POST['skipList'] : 'metadata.opf,cover.jpg';
 $feedTitle = isset($_POST['feedTitle']) ? $_POST['feedTitle'] : $l->t("%s's Library", \OC_User::getDisplayName());
+$opdsoldMime = isset($_POST['opdsoldMime']) ? $_POST['opdsoldMime'] : '';
 
 if (!strlen($rootPath) ||
-    \OC\Files\Filesystem::isValidPath($rootPath) === false || 
+    \OC\Files\Filesystem::isValidPath($rootPath) === false ||
     \OC\Files\Filesystem::file_exists($rootPath) === false ) {
 	\OC_JSON::error(
 		array(
