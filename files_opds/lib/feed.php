@@ -24,7 +24,7 @@ class Feed
          * @return string feed id
          */
         public static function getFeedId() {
-                return Config::get('id', '');
+		return Config::get('id', '');
         }
 
         /**

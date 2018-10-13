@@ -34,10 +34,11 @@ if (!strlen($rootPath) ||
 	);
 } else {
 	Config::set('root_path', $rootPath);
-        Config::set('enable', $opdsEnable);
-        Config::set('file_types', $fileTypes);
-        Config::set('skip_list', $skipList);
-        Config::set('feed_title', $feedTitle);
+	Config::set('enable', $opdsEnable);
+	Config::set('file_types', $fileTypes);
+	Config::set('skip_list', $skipList);
+	Config::set('feed_title', $feedTitle);
+	Config::set('old_mime', $opdsoldMime);
 	Config::set('id', Util::genUuid());
 
        	\OC_JSON::success(
@@ -48,4 +49,3 @@ if (!strlen($rootPath) ||
 }
 
 exit();
-
