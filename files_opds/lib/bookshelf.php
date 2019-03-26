@@ -70,7 +70,8 @@ class Bookshelf
 		$files = array();
 		if($bookshelf = json_decode(Config::get('bookshelf', ''), true)) {
 			arsort($bookshelf);
-			while (list($id, $time) = each($bookshelf)) {
+			foreach($bookshelf as $id => $time) {
+			/**while (list($id, $time) = each($bookshelf)) { */
 				try {
 					array_push($files, \OC\Files\Filesystem::getFileInfo(\OC\Files\Filesystem::normalizePath(\OC\Files\Filesystem::getPath($id))));
 				} catch(\OCP\Files\NotFoundException $e) {
