@@ -96,8 +96,8 @@ class Meta
 				mb_strimwidth($meta['description'],0,2044,'...'),
 				$meta['subjects'],
 				$meta['cover'],
-				$meta['rescan'],
- 				date("Y-m-d H:i:s")
+ 				date("Y-m-d H:i:s"),
+				$meta['id']
 				);
 
 		} else {
