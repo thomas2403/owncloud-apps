@@ -97,7 +97,8 @@ class Meta
 				$meta['subjects'],
 				$meta['cover'],
 				$meta['rescan'],
-				$meta['id']
+ 				date("Y-m-d H:i:s")
+				/** $meta['id'] */
 				);
 
 		} else {
@@ -115,7 +116,8 @@ class Meta
 				mb_strimwidth($meta['description'],0,2044,'...'),
 				$meta['subjects'],
 				$meta['cover'],
-				$meta['rescan']
+				date("Y-m-d H:i:s")				
+				/** $meta['rescan'] */
 				);
 		}
 		$query = \OC_DB::prepare($sql);
@@ -161,7 +163,7 @@ class Meta
 	 */
 	public static function rescan() {
                 $sql = "UPDATE *PREFIX*opds_metadata SET `rescan`=?";
-                $args = array(date("Y-m-d H:i:s"));
+                $args = array(date("Y-m-d H:i:s")); 
                 $query = \OC_DB::prepare($sql);
                 $result = $query->execute($args);
 	}
