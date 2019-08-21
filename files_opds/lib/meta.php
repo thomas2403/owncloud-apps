@@ -96,7 +96,7 @@ class Meta
 				mb_strimwidth($meta['description'],0,2044,'...'),
 				$meta['subjects'],
 				$meta['cover'],
-				$meta['rescan'],
+ 				date("Y-m-d H:i:s"),
 				$meta['id']
 				);
 
@@ -115,7 +115,7 @@ class Meta
 				mb_strimwidth($meta['description'],0,2044,'...'),
 				$meta['subjects'],
 				$meta['cover'],
-				$meta['rescan']
+				date("Y-m-d H:i:s")
 				);
 		}
 		$query = \OC_DB::prepare($sql);
